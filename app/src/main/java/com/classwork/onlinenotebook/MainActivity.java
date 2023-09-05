@@ -9,17 +9,18 @@ import android.view.View;
 import com.classwork.onlinenotebook.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-ActivityMainBinding binding;
+    ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding=ActivityMainBinding.inflate(getLayoutInflater());
-        View view=binding.getRoot();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
         setContentView(view);
-binding.nextpage.setOnClickListener(v->{
-    startActivity(new Intent(MainActivity.this,ShowQuotes.class));
-});
+        binding.showQuotes.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ShowQuotes.class));
+        });
 
 
     }
