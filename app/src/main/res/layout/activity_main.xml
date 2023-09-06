@@ -9,7 +9,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <LinearLayout
 

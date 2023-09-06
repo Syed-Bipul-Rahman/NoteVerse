@@ -1,4 +1,4 @@
-package com.classwork.onlinenotebook;
+package com.classwork.onlinenotebook.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.classwork.onlinenotebook.ShowQuotes;
 import com.classwork.onlinenotebook.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

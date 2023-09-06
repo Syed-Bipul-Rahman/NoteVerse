@@ -1,4 +1,4 @@
-package com.classwork.onlinenotebook.responses;
+package com.classwork.onlinenotebook.models;
 
 public class QuotesResponse {
     private String content;

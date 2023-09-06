@@ -6,18 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.classwork.onlinenotebook.databinding.ActivityMainBinding;
 import com.classwork.onlinenotebook.databinding.ActivityShowQuotesBinding;
-import com.classwork.onlinenotebook.responses.QuotesResponse;
+import com.classwork.onlinenotebook.models.QuotesResponse;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowQuotes extends AppCompatActivity {
     ActivityShowQuotesBinding binding;
