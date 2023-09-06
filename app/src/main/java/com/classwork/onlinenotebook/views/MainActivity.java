@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         binding.showQuotes.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ShowQuotes.class));
         });
-
+binding.addnotes.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, AddQuotes.class));
+        });
 
     }
 }
