@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +17,13 @@
         android:theme="@style/Theme.OnlineNOtebook"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".views.ShowAllNotes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".views.AddQuotes"
             android:exported="false">

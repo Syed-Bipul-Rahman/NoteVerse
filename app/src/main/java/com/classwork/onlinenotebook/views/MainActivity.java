@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.classwork.onlinenotebook.ShowQuotes;
+
+
 import com.classwork.onlinenotebook.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
         binding.showQuotes.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ShowQuotes.class));
         });
-binding.addnotes.setOnClickListener(v -> {
+        binding.addnotes.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, AddQuotes.class));
+        });
+        binding.shownotes.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ShowAllNotes.class));
         });
 
     }
