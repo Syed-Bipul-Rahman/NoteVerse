@@ -80,7 +80,7 @@ public class ShowAllNotes extends AppCompatActivity {
 
     private void initializing() {
         recyclerView = binding.recylerveiwallnotes;
-
+        recyclerView.setHasFixedSize(true);
         Retrofit retrofit = ApiClient.getClient();
         apiInterface = retrofit.create(ApiInterface.class);
 
