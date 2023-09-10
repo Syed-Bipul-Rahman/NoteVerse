@@ -2,6 +2,7 @@ package com.classwork.onlinenotebook;
 import com.classwork.onlinenotebook.models.AllNotes;
 import com.classwork.onlinenotebook.models.QuotesResponse;
 import com.classwork.onlinenotebook.responses.AddResponse;
+import com.classwork.onlinenotebook.responses.AddnoteResponse;
 import com.classwork.onlinenotebook.responses.GetNotesResponse;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public interface ApiInterface {
     Call<GetNotesResponse> allNotes();
 
     @FormUrlEncoded
-    @POST("add-note.php")
-    Call<AddResponse> addNote(@Field("notes") String notes,
-                              @Field("updateat") String date);
+    @POST("addnote.php")
+    Call<AddnoteResponse> addNote(@Field("notes") String notes,
+                                  @Field("updateat") String date);
 
 
 
