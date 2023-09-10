@@ -34,7 +34,7 @@ public class AddQuotes extends AppCompatActivity {
         binding = ActivityAddQuotesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        getSupportActionBar().setTitle("Add Quotes");
         apiInterface = retrofit.create(ApiInterface.class);
 
 //get todays date
