@@ -1,9 +1,11 @@
 package com.classwork.onlinenotebook.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.classwork.onlinenotebook.ApiClient;
 import com.classwork.onlinenotebook.ApiInterface;
 import com.classwork.onlinenotebook.R;
 import com.classwork.onlinenotebook.models.AllNotes;
+import com.classwork.onlinenotebook.views.UpdateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +51,17 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
     public void onBindViewHolder(@NonNull RecyclerAdapters.ViewHolder holder, int position) {
         holder.notes.setText(dataModels.get(position).getNotes().toString());
         holder.date.setText(dataModels.get(position).getUpdateat().toString());
+        holder.edit.setOnClickListener(v -> {
+            String  note=dataModels.get(position).getNotes().toString().trim();
 
+            Intent intent=new Intent(context, UpdateActivity.class);
+
+            intent.putExtra("text",note);
+
+        });
         //click
         holder.linearLayout.setOnClickListener(view -> {
-            Toast.makeText(context, "Item clicked: " + dataModels.get(position).getNotes().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,   dataModels.get(position).getNotes().toString(), Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -64,6 +74,7 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
 
         TextView notes, date;
         LinearLayout linearLayout;
+        ImageView delete, share, edit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +82,11 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
             notes = itemView.findViewById(R.id.notetext);
             date = itemView.findViewById(R.id.datetext);
             linearLayout = itemView.findViewById(R.id.linearlayoutforcl);
+
+            delete = itemView.findViewById(R.id.deletenote);
+            share = itemView.findViewById(R.id.sharenote);
+            edit = itemView.findViewById(R.id.editnote);
+
         }
     }
 }
