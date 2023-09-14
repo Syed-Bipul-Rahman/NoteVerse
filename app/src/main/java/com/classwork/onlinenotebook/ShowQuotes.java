@@ -2,6 +2,9 @@ package com.classwork.onlinenotebook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -34,7 +37,22 @@ public class ShowQuotes extends AppCompatActivity {
                 loadRandomQuote();
             }
         });
+        binding.downloadtbn.setOnClickListener(v->{
+            Toast.makeText(this, "Downloading...", Toast.LENGTH_SHORT).show();
+        });
+//copy to clipboard
 
+        binding.copybtn.setOnClickListener(v->{
+
+            String quotesdata=binding.quotesofbook.getText().toString().trim();
+            ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clipData = ClipData.newPlainText("SB Rahman", quotesdata);
+
+            clipboardManager.setPrimaryClip(clipData);
+
+
+            Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+        });
 
     }
 

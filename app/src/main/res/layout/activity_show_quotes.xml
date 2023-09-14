@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowQuotes">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="Hello World!"
+                android:text="Please wait..."
                 android:textAlignment="textStart"
                 android:textColor="@color/orange"
                 android:textSize="20sp"
@@ -45,17 +46,47 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:gravity="end"
-                android:text="Hello World!"
+                android:text="Loading..."
                 android:textAlignment="textEnd" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/btnNext"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Next"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <Button
+            android:id="@+id/copybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_content_copy_24"
+            android:text="Copy" />
+
+        <ImageButton
+            android:id="@+id/downloadtbn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bgdownload"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:src="@drawable/ic_baseline_download_24" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:text="Next" />
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
