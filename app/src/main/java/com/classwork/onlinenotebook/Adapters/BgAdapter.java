@@ -41,7 +41,7 @@ public class BgAdapter extends RecyclerView.Adapter<BgAdapter.myviewholder> {
     public void onBindViewHolder(@NonNull BgAdapter.myviewholder holder, int position) {
         holder.imageView.setImageResource(arrayList.get(position).getImage());
         holder.linearLayout.setOnClickListener(view -> {
-            Toast.makeText(context, "clicked position " + position, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "clicked position " + position, Toast.LENGTH_SHORT).show();
 
             if (onItemClickListener != null) {
                 onItemClickListener.onItemClick(position); // Notify the listener of item click

@@ -31,7 +31,7 @@
                 <LinearLayout
                     android:id="@+id/setbglinear"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="300dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -141,6 +141,8 @@
                 android:id="@+id/bgrecyclerview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
                 android:visibility="gone" />
 
 
@@ -184,6 +186,14 @@
                     android:layout_gravity="center"
                     android:text="Black"
                     android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/whiteradio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="White"
+                    android:textColor="@color/sharecolor" />
 
 
             </RadioGroup>

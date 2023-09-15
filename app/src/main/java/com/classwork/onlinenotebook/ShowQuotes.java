@@ -13,11 +13,13 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.classwork.onlinenotebook.Adapters.BgAdapter;
@@ -124,6 +126,33 @@ public class ShowQuotes extends AppCompatActivity {
         });
 
 
+        binding.rradiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int selectedbuttonid = radioGroup.getCheckedRadioButtonId();
+
+
+                if (selectedbuttonid == binding.redradio.getId()) {
+                    binding.quotesofbook.setTextColor(Color.RED);
+
+                } else if (selectedbuttonid == binding.greenradio.getId()) {
+                    binding.quotesofbook.setTextColor(Color.GREEN);
+
+                } else if (selectedbuttonid == binding.blueradio.getId()) {
+                    binding.quotesofbook.setTextColor(Color.BLUE);
+
+                } else if (selectedbuttonid == binding.blackradio.getId()) {
+                    binding.quotesofbook.setTextColor(Color.BLACK);
+
+                } else if (selectedbuttonid == binding.whiteradio.getId()) {
+                    binding.quotesofbook.setTextColor(Color.WHITE);
+
+                }
+
+            }
+        });
+
+
         //  binding.downloadtbn.setOnClickListener(v -> {
 //            if (ContextCompat.checkSelfPermission(ShowQuotes.this, Manifest.permission.MANAGE_EXTERNAL_STORAGE)
 //                    != PackageManager.PERMISSION_GRANTED) {
@@ -145,14 +174,43 @@ public class ShowQuotes extends AppCompatActivity {
     private void recyclerData() {
 
         arrayList = new ArrayList<>();
+//adding backgrounds
 
-        arrayList.add(new BGmodel(R.drawable.ic_splash));
         arrayList.add(new BGmodel(R.drawable.on));
         arrayList.add(new BGmodel(R.drawable.one));
         arrayList.add(new BGmodel(R.drawable.onee));
         arrayList.add(new BGmodel(R.drawable.oneee));
         arrayList.add(new BGmodel(R.drawable.oneeeee));
         arrayList.add(new BGmodel(R.drawable.oneeeeee));
+
+        arrayList.add(new BGmodel(R.drawable.bv));
+        arrayList.add(new BGmodel(R.drawable.vv));
+        arrayList.add(new BGmodel(R.drawable.vvvv));
+        arrayList.add(new BGmodel(R.drawable.b));
+        arrayList.add(new BGmodel(R.drawable.background));
+        arrayList.add(new BGmodel(R.drawable.ccccc));
+        arrayList.add(new BGmodel(R.drawable.ccccc));
+        arrayList.add(new BGmodel(R.drawable.dd));
+        arrayList.add(new BGmodel(R.drawable.ddddd));
+        arrayList.add(new BGmodel(R.drawable.ddddddd));
+        arrayList.add(new BGmodel(R.drawable.dddddddddddd));
+        arrayList.add(new BGmodel(R.drawable.dddddddd));
+        arrayList.add(new BGmodel(R.drawable.ddddddddddddfsf));
+        arrayList.add(new BGmodel(R.drawable.dddddss));
+        arrayList.add(new BGmodel(R.drawable.dsadfas));
+        arrayList.add(new BGmodel(R.drawable.dsfasdfasdfas));
+        arrayList.add(new BGmodel(R.drawable.afsfadfddfa));
+        arrayList.add(new BGmodel(R.drawable.asfadfsajdf));
+        arrayList.add(new BGmodel(R.drawable.asfasdfasdfas));
+        arrayList.add(new BGmodel(R.drawable.fadfsasdfaf));
+        arrayList.add(new BGmodel(R.drawable.fasdfafsa));
+        arrayList.add(new BGmodel(R.drawable.fff));
+        arrayList.add(new BGmodel(R.drawable.fasdfasdfas));
+        arrayList.add(new BGmodel(R.drawable.fsadfasdj));
+        arrayList.add(new BGmodel(R.drawable.fasfasdfad));
+        arrayList.add(new BGmodel(R.drawable.ffffffdd));
+        arrayList.add(new BGmodel(R.drawable.fasfdfasfasfasfasfdd));
+        arrayList.add(new BGmodel(R.drawable.fsfafsaf));
 
     }
 
