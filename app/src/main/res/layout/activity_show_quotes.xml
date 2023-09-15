@@ -29,8 +29,9 @@
                 app:cardElevation="20dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/setbglinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -143,6 +144,49 @@
                 android:visibility="gone" />
 
 
+            <RadioGroup
+                android:id="@+id/rradiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/redradio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Red"
+                    android:textColor="@color/red" />
+
+                <RadioButton
+                    android:id="@+id/greenradio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Green"
+                    android:textColor="@color/greenlight" />
+
+                <RadioButton
+                    android:id="@+id/blueradio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Blue"
+                    android:textColor="@color/purple_500" />
+
+                <RadioButton
+                    android:id="@+id/blackradio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Black"
+                    android:textColor="@color/black" />
+
+
+            </RadioGroup>
         </LinearLayout>
     </ScrollView>
 

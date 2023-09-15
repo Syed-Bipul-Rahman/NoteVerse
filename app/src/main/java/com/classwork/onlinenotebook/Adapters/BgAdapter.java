@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.classwork.onlinenotebook.R;
@@ -17,7 +18,7 @@ import com.classwork.onlinenotebook.models.BGmodel;
 import java.util.ArrayList;
 
 public class BgAdapter extends RecyclerView.Adapter<BgAdapter.myviewholder> {
-
+    private OnItemClickListener onItemClickListener;
     Context context;
     ArrayList<BGmodel> arrayList;
 
@@ -41,6 +42,12 @@ public class BgAdapter extends RecyclerView.Adapter<BgAdapter.myviewholder> {
         holder.imageView.setImageResource(arrayList.get(position).getImage());
         holder.linearLayout.setOnClickListener(view -> {
             Toast.makeText(context, "clicked position " + position, Toast.LENGTH_SHORT).show();
+
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(position); // Notify the listener of item click
+            }
+
+
         });
 
 
@@ -55,6 +62,7 @@ public class BgAdapter extends RecyclerView.Adapter<BgAdapter.myviewholder> {
         ImageView imageView;
         LinearLayout linearLayout;
 
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -63,5 +71,13 @@ public class BgAdapter extends RecyclerView.Adapter<BgAdapter.myviewholder> {
 
 
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 }

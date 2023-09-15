@@ -15,7 +15,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.classwork.onlinenotebook.Adapters.BgAdapter;
@@ -45,12 +47,15 @@ public class ShowQuotes extends AppCompatActivity {
     RecyclerView recyclerView;
     BgAdapter recyclerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityShowQuotesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
         recyclerData();
 
         recyclerView = findViewById(R.id.bgrecyclerview);
@@ -60,6 +65,18 @@ public class ShowQuotes extends AppCompatActivity {
 
 
         recyclerAdapter = new BgAdapter(this, arrayList);
+
+
+        recyclerAdapter.setOnItemClickListener(new BgAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                int imageResourceId = arrayList.get(position).getImage();
+                binding.setbglinear.setBackgroundResource(imageResourceId);
+
+
+            }
+        });
+
         recyclerView.setAdapter(recyclerAdapter);
 
 
@@ -94,11 +111,16 @@ public class ShowQuotes extends AppCompatActivity {
         });
         binding.changebgbutton.setOnClickListener(view1 -> {
             Toast.makeText(this, "Select bg to set", Toast.LENGTH_SHORT).show();
+            binding.rradiogroup.setVisibility(View.GONE);
             binding.bgrecyclerview.setVisibility(View.VISIBLE);
+
 
         });
         binding.changecolorbtn.setOnClickListener(view1 -> {
-            Toast.makeText(this, "changing color", Toast.LENGTH_SHORT).show();
+            binding.bgrecyclerview.setVisibility(View.GONE);
+            binding.rradiogroup.setVisibility(View.VISIBLE);
+
+            //  Toast.makeText(this, "changing color", Toast.LENGTH_SHORT).show();
         });
 
 
