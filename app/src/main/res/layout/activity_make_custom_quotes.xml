@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+
                 android:padding="10dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="20dp">
@@ -34,18 +35,27 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/usertextm"
+                    <LinearLayout
+                        android:id="@+id/marginlayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="10dp"
-                        android:text="Text will show here.."
-                        android:textAlignment="textStart"
-                        android:textColor="@color/orange"
-                        android:textSize="20sp"
-                        android:textStyle="italic"
-                        tools:ignore="RtlCompat" />
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/usertextm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Text will show here.."
+                            android:textAlignment="textStart"
+                            android:textColor="@color/orange"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -61,13 +71,14 @@
                 android:hint="Start typing"
                 android:textColor="@color/orange" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioGroup
-                    android:id="@+id/rradiogroup"
+                    android:id="@+id/rradiogroupcustom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -121,6 +132,111 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Right"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarleft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:max="100" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Left"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbarringht"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:max="100" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Top"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbarbottom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:max="100" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="Bottom"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbartop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:max="100" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -143,6 +259,15 @@
                     android:layout_weight="1"
                     android:text="Ok" />
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bgrecyclerviewcustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp" />
+
+
         </LinearLayout>
     </ScrollView>
 
