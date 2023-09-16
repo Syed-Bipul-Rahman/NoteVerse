@@ -1,0 +1,44 @@
+{
+  "hash": "df1b5123",
+  "browserHash": "c6bbed5e",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "257cc72b",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "24ebe944",
+      "needsInterop": true
+    },
+    "@iconscout/react-unicons": {
+      "src": "../../node_modules/@iconscout/react-unicons/index.js",
+      "file": "@iconscout_react-unicons.js",
+      "fileHash": "4501adb2",
+      "needsInterop": false
+    },
+    "moment": {
+      "src": "../../node_modules/moment/dist/moment.js",
+      "file": "moment.js",
+      "fileHash": "3d586ab8",
+      "needsInterop": false
+    },
+    "querystring": {
+      "src": "../../node_modules/querystring/index.js",
+      "file": "querystring.js",
+      "fileHash": "c6e1c4d6",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-YDMPIDXF": {
+      "file": "chunk-YDMPIDXF.js"
+    },
+    "chunk-WNKWOKNR": {
+      "file": "chunk-WNKWOKNR.js"
+    }
+  }
+}
