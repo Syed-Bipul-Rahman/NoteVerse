@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         binding.shownotes.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ShowAllNotes.class));
         });
+        binding.customquotesba.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, MakeCustomQuotes.class));
+        });
+
 
     }
 }

@@ -135,7 +135,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Quotes"
+                    android:text="Random Quotes"
                     android:textColor="@color/orange"
                     android:textSize="18sp" />
 
@@ -153,6 +153,7 @@
             app:cardElevation="5dp">
 
             <LinearLayout
+                android:id="@+id/customquotesba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -165,13 +166,13 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:src="@drawable/ic_baseline_info_24" />
+                    android:src="@drawable/ic_baseline_dynamic_form_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About App"
-                    android:textColor="@color/sharecolor"
+                    android:text="Custom quotes"
+                    android:textColor="#59758E"
                     android:textSize="18sp" />
 
             </LinearLayout>
@@ -180,55 +181,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="2">
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/todaysnews"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/newsiocn"
-                    app:tint="@color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="News"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-
-    </LinearLayout>
 
 </LinearLayout>
