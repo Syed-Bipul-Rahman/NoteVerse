@@ -29,6 +29,8 @@ public class MakeCustomQuotes extends AppCompatActivity {
 
             binding.usertextm.setText(userText);
             //  Toast.makeText(this, userText, Toast.LENGTH_SHORT).show();
+            
+
         });
 
 
