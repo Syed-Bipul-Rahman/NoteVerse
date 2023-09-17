@@ -55,10 +55,11 @@ public class AddQuotes extends AppCompatActivity {
             } else {
                 String date = todaysdate;
                 //send data to server
+                String color="2";
 
                 Toast.makeText(this, "Calling api...", Toast.LENGTH_SHORT).show();
 
-                sendDataToServer(quote, date);
+                sendDataToServer(quote, date,color);
 
             }
 
@@ -67,8 +68,8 @@ public class AddQuotes extends AppCompatActivity {
 
     }
 
-    private void sendDataToServer(String quote, String date) {
-        apiInterface.addNote(quote, date).enqueue(new Callback<AddnoteResponse>() {
+    private void sendDataToServer(String quote, String date,String color) {
+        apiInterface.addNote(quote, date,color).enqueue(new Callback<AddnoteResponse>() {
             @Override
             public void onResponse(Call<AddnoteResponse> call, Response<AddnoteResponse> response) {
 

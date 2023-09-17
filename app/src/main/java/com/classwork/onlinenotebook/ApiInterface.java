@@ -23,7 +23,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("addnote.php")
     Call<AddnoteResponse> addNote(@Field("notes") String notes,
-                                  @Field("updateat") String date);
+                                  @Field("updateat") String date,
+                                  @Field("color") String color);
 
 
 
