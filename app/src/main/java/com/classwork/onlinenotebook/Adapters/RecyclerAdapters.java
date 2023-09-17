@@ -62,10 +62,12 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
         //click
         holder.linearLayout.setOnClickListener(view -> {
             String note = dataModels.get(position).getNotes().toString().trim();
+            int id = dataModels.get(position).getId();
 
             Intent intent = new Intent(context, UpdateActivity.class);
 
             intent.putExtra("text", note);
+            intent.putExtra("id", id);
 
             context.startActivity(intent);
         });

@@ -55,7 +55,7 @@ public class AddQuotes extends AppCompatActivity {
             } else {
                 String date = todaysdate;
                 //send data to server
-                String color="2";
+                String color="3";
 
                 Toast.makeText(this, "Calling api...", Toast.LENGTH_SHORT).show();
 

@@ -1,4 +1,5 @@
 package com.classwork.onlinenotebook;
+
 import com.classwork.onlinenotebook.models.AllNotes;
 import com.classwork.onlinenotebook.models.QuotesResponse;
 import com.classwork.onlinenotebook.responses.AddResponse;
@@ -26,6 +27,10 @@ public interface ApiInterface {
                                   @Field("updateat") String date,
                                   @Field("color") String color);
 
+    @FormUrlEncoded
+    @POST("update.php")
+    Call<AddnoteResponse> updateNote(@Field("id") String id,
+                                     @Field("notes") String notes);
 
 
 }
