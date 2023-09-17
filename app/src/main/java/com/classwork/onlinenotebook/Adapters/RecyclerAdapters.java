@@ -52,16 +52,22 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
         holder.notes.setText(dataModels.get(position).getNotes().toString());
         holder.date.setText(dataModels.get(position).getUpdateat().toString());
         holder.edit.setOnClickListener(v -> {
-            String  note=dataModels.get(position).getNotes().toString().trim();
+            String note = dataModels.get(position).getNotes().toString().trim();
 
-            Intent intent=new Intent(context, UpdateActivity.class);
+            Intent intent = new Intent(context, UpdateActivity.class);
 
-            intent.putExtra("text",note);
+            intent.putExtra("text", note);
 
         });
         //click
         holder.linearLayout.setOnClickListener(view -> {
-            Toast.makeText(context,   dataModels.get(position).getNotes().toString(), Toast.LENGTH_SHORT).show();
+            String note = dataModels.get(position).getNotes().toString().trim();
+
+            Intent intent = new Intent(context, UpdateActivity.class);
+
+            intent.putExtra("text", note);
+
+            context.startActivity(intent);
         });
     }
 
