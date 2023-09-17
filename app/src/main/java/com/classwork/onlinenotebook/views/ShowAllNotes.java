@@ -37,7 +37,7 @@ public class ShowAllNotes extends AppCompatActivity {
         binding = ActivityShowAllNotesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        setTitle("Your notes");
         initializing();
         getdata();
 

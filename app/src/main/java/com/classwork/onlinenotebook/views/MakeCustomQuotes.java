@@ -14,6 +14,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -224,6 +225,21 @@ public class MakeCustomQuotes extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+
+//        binding.showseekbars.setOnClickListener(v->{
+//
+//            binding.editusertext.setVisibility(view.GONE);
+//            binding.setmarginlayoutvair.setVisibility(view.VISIBLE);
+//        });
+
+        binding.showseekbars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                binding.editusertext.setVisibility(b ? View.GONE : View.VISIBLE);
+                binding.setmarginlayoutvair.setVisibility(b ? View.VISIBLE : View.GONE);
             }
         });
 

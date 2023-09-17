@@ -8,6 +8,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -26,6 +28,7 @@ import com.classwork.onlinenotebook.Adapters.BgAdapter;
 import com.classwork.onlinenotebook.databinding.ActivityShowQuotesBinding;
 import com.classwork.onlinenotebook.models.BGmodel;
 import com.classwork.onlinenotebook.models.QuotesResponse;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,7 +51,7 @@ public class ShowQuotes extends AppCompatActivity {
     ArrayList<BGmodel> arrayList;
     RecyclerView recyclerView;
     BgAdapter recyclerAdapter;
-
+    private boolean rotete = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,29 @@ public class ShowQuotes extends AppCompatActivity {
         binding = ActivityShowQuotesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
+        FloatingActionButton fabadd, fabcangebg, fabchangecolor;
+
+        fabadd = binding.fabadd;
+        fabcangebg = binding.changebgbutton;
+        fabchangecolor = binding.changecolorbtn;
+
+        initshowOut(fabcangebg);
+        initshowOut(fabchangecolor);
+
+        fabadd.setOnClickListener(v -> {
+
+            rotete = rotatefab(v, !rotete);
+            if (rotete) {
+                showIn(fabchangecolor);
+                showIn(fabcangebg);
+            } else {
+                showOut(fabchangecolor);
+                showOut(fabcangebg);
+            }
+
+        });
 
 
         recyclerData();
@@ -151,22 +177,6 @@ public class ShowQuotes extends AppCompatActivity {
 
             }
         });
-
-
-        //  binding.downloadtbn.setOnClickListener(v -> {
-//            if (ContextCompat.checkSelfPermission(ShowQuotes.this, Manifest.permission.MANAGE_EXTERNAL_STORAGE)
-//                    != PackageManager.PERMISSION_GRANTED) {
-//                // Request the permission
-//                ActivityCompat.requestPermissions(ShowQuotes.this,
-//                        new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE},
-//                        MY_PERMISSIONS_REQUEST_MANAGE_EXTERNAL_STORAGE);
-//            } else {
-//                // Permission is already granted, proceed to save the image
-//                saveImage();
-//            }
-
-
-        //     });
 
 
     }
@@ -300,65 +310,6 @@ public class ShowQuotes extends AppCompatActivity {
 
     }
 
-//    private void saveImage() {
-//
-//        Bitmap cardBitmap = captureView(cardView);
-//
-//        if (cardBitmap != null) {
-//            boolean isSaved = saveBitmapToStorage(cardBitmap);
-//            if (isSaved) {
-//                Toast.makeText(ShowQuotes.this, "Image saved successfully", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(ShowQuotes.this, "Failed to save image", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
-//
-//    private boolean saveBitmapToStorage(Bitmap bitmap) {
-//        // Check if external storage is available for writing
-//        if (isExternalStorageWritable()) {
-//            // Create a directory to save the images (you can customize this path)
-//            File directory = new File(Environment.getExternalStoragePublicDirectory(
-//                    Environment.DIRECTORY_PICTURES), "YourAppImages");
-//
-//            if (!directory.exists()) {
-//                if (!directory.mkdirs()) {
-//                    return false; // Failed to create the directory
-//                }
-//            }
-//
-//            // Generate a unique file name using a timestamp
-//            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-//            String fileName = "IMG_" + timeStamp + ".png";
-//
-//            // Create the file to save the image
-//            File imageFile = new File(directory, fileName);
-//
-//            try {
-//                FileOutputStream fos = new FileOutputStream(imageFile);
-//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-//                fos.close();
-//                return true; // Image saved successfully
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return false; // External storage is not writable or an error occurred
-//    }
-//
-//    // Check if external storage is available for writing
-//    private boolean isExternalStorageWritable() {
-//        String state = Environment.getExternalStorageState();
-//        return Environment.MEDIA_MOUNTED.equals(state);
-//    }
-//
-//    private Bitmap captureView(View view) {
-//        view.setDrawingCacheEnabled(true);
-//        view.buildDrawingCache();
-//        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-//        view.setDrawingCacheEnabled(false);
-//        return bitmap;
-//    }
 
     private void loadRandomQuote() {
 
@@ -388,21 +339,68 @@ public class ShowQuotes extends AppCompatActivity {
             }
         });
     }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//
-//        if (requestCode == MY_PERMISSIONS_REQUEST_MANAGE_EXTERNAL_STORAGE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Permission granted, proceed to save the image
-//                saveImage();
-//            } else {
-//                // Permission denied, show a message to the user
-//                Toast.makeText(this, "Permission denied. Cannot save image.", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//
-//
-//    }
+
+    public static void initshowOut(final View v) {
+        v.setVisibility(View.GONE);
+        v.setTranslationY(v.getHeight());
+
+        v.setAlpha(0f);
+
+    }
+
+
+    public static boolean rotatefab(final View v, boolean rotate) {
+        v.animate().setDuration(200)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+
+                    }
+                }).rotation(rotate ? 135f : 0f);
+        return rotate;
+    }
+
+
+    public static void showIn(final View v) {
+        v.setVisibility(View.VISIBLE);
+        v.setAlpha(0f);
+        v.setTranslationY(v.getHeight());
+        v.animate()
+                .setDuration(200)
+                .translationY(0)
+                // .translationY(v.getHeight())
+                //.alpha(1.0f)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+
+                        super.onAnimationEnd(animation);
+                    }
+                }).alpha(1f)
+                .start();
+
+    }
+
+
+    public static void showOut(final View v) {
+        v.setVisibility(View.VISIBLE);
+        v.setAlpha(1f);
+        v.setTranslationY(0);
+        v.animate()
+                .setDuration(200)
+                .translationY(v.getHeight())
+                // .translationY(v.getHeight())
+                //.alpha(1.0f)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        v.setVisibility(View.GONE);
+                        super.onAnimationEnd(animation);
+                    }
+                }).alpha(0f)
+                .start();
+
+    }
+
 }
