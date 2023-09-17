@@ -23,19 +23,19 @@ export default function App() {
     setNotes((prev) => [
       {
         notes: "",
-        updateat: moment(new Date()).format("DD/MM/YYYY"),
+        updateat: moment(new Date()).format("DD-MM-YYYY"),
         color,
       },
       ...prev,
     ]);
     setBoxData({
       notes: "",
-      updateat: moment(new Date()).format("DD/MM/YYYY"),
+      updateat: moment(new Date()).format("DD-MM-YYYY"),
       color,
     });
     setModal(true);
     setIsEditable(true);
-    setUpdate(false)
+    setUpdate(false);
   };
 
   //   var colorone="#F2B66D",
@@ -100,59 +100,72 @@ export default function App() {
           name="search"
         />
         <h1 className="text-5xl font-bold my-8">Notes</h1>
-        <div className="flex flex-wrap gap-5">
-          {((arr) =>
-            arr.map((data, index) => {
+        <div className="flex flex-wrap gap-5 mx-auto">
+          {((arr) => {
+            if (arr.length === 0) {
               return (
-                <div
-                  key={index}
-                  className={`bg-[#${
-                    data.color === "1"
-                      ? "F2B66D"
-                      : data.color === "2"
-                      ? "F2916D"
-                      : data.color === "3"
-                      ? "B091F2"
-                      : data.color === "4"
-                      ? "05DBF2"
-                      : "EFF294"
-                  }] w-60 h-52 rounded-2xl relative p-4 mx-auto`}
-                >
-                  {data.notes.length > 140 ? (
-                    <p className="text-slate-900 font-medium">
-                      {data.notes.slice(1, 130) + "..."}
-                      <strong
-                        className="cursor-pointer"
+                <>
+                  <div className="w-60 h-52 rounded-2xl animate-pulse bg-slate-300"></div>
+                  <div className="w-60 h-52 rounded-2xl animate-pulse bg-slate-300"></div>
+                  <div className="w-60 h-52 rounded-2xl animate-pulse bg-slate-300"></div>
+                  <div className="w-60 h-52 rounded-2xl animate-pulse bg-slate-300"></div>
+                  <div className="w-60 h-52 rounded-2xl animate-pulse bg-slate-300"></div>
+                </>
+              );
+            } else {
+              return arr.map((data, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`bg-[#${
+                      data.color === "1"
+                        ? "F2B66D"
+                        : data.color === "2"
+                        ? "F2916D"
+                        : data.color === "3"
+                        ? "B091F2"
+                        : data.color === "4"
+                        ? "05DBF2"
+                        : "EFF294"
+                    }] w-60 h-52 rounded-2xl relative p-4`}
+                  >
+                    {data.notes.length > 140 ? (
+                      <p className="text-slate-900 font-medium">
+                        {data.notes.slice(1, 130) + "..."}
+                        <strong
+                          className="cursor-pointer"
+                          onClick={() => {
+                            setBoxData(data);
+                            setModal(true);
+                            setIsEditable(false);
+                            setUpdate(false);
+                          }}
+                        >
+                          show more
+                        </strong>
+                      </p>
+                    ) : (
+                      <p className="text-slate-900 font-medium">{data.notes}</p>
+                    )}
+
+                    <div className="absolute bottom-5 flex items-end justify-between min-w-[208px]">
+                      <span className="text-sm italic">{data.updateat}</span>
+                      <UilPen
                         onClick={() => {
                           setBoxData(data);
                           setModal(true);
-                          setIsEditable(false);
-                          setUpdate(false)
+                          setIsEditable(true);
+                          setUpdate(true);
                         }}
-                      >
-                        show more
-                      </strong>
-                    </p>
-                  ) : (
-                    <p className="text-slate-900 font-medium">{data.notes}</p>
-                  )}
-
-                  <div className="absolute bottom-5 flex items-end justify-between min-w-[208px]">
-                    <span className="text-sm italic">{data.updateat}</span>
-                    <UilPen
-                      onClick={() => {
-                        setBoxData(data);
-                        setModal(true);
-                        setIsEditable(true);
-                        setUpdate(true)
-                      }}
-                      size="40px"
-                      className="bg-black rounded-full text-white p-2 cursor-pointer"
-                    />
+                        size="40px"
+                        className="bg-black rounded-full text-white p-2 cursor-pointer"
+                      />
+                    </div>
                   </div>
-                </div>
-              );
-            }))(search ?? notes)}
+                );
+              });
+            }
+          })(search ?? notes)}
         </div>
       </main>
       {modal && (
