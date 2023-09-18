@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearlayoutforcl"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:id="@+id/linearlayoutforcl"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:layout_width="160dp"
         android:layout_height="wrap_content"
@@ -30,7 +29,7 @@
                     android:id="@+id/notetext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="eet users' needs. I'm looking to collaborate on projects related to mobile and web application development, particularly those that involve Android, Java, PHP, or Laravel. I'm also interested in contributing to open-source projects and working with teams that follow agile methodologies an"
+                    android:text=" particularly those that involve Android, Java, PHP, or Laravel. I'm also interested in contributing to open-source projects and working with teams that follow agile methodologies an"
                     android:textAlignment="textStart"
                     android:textColor="@color/orange"
                     android:textSize="20sp"
@@ -78,6 +77,4 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
 </LinearLayout>

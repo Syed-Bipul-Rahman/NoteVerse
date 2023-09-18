@@ -42,7 +42,7 @@ public class RecyclerAdapters extends RecyclerView.Adapter<RecyclerAdapters.View
     @NonNull
     @Override
     public RecyclerAdapters.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.notes_layout, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.gridlayout, null);
 
         return new ViewHolder(view);
     }

@@ -1,6 +1,7 @@
 package com.classwork.onlinenotebook.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -81,6 +82,8 @@ public class ShowAllNotes extends AppCompatActivity {
     private void initializing() {
         recyclerView = binding.recylerveiwallnotes;
         recyclerView.setHasFixedSize(true);
+
+
         Retrofit retrofit = ApiClient.getClient();
         apiInterface = retrofit.create(ApiInterface.class);
 
@@ -89,9 +92,20 @@ public class ShowAllNotes extends AppCompatActivity {
 
     private void setDataAdapter(List<AllNotes> dataModels) {
         dataAdapter = new RecyclerAdapters(this, dataModels);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        // recyclerView.setLayoutManager(linearLayoutManager);
+        //    recyclerView.setAdapter(dataAdapter);
+
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        //adapter
+
         recyclerView.setAdapter(dataAdapter);
+
+
     }
 }
